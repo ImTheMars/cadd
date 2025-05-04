@@ -1,0 +1,115 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Map-related styles */
+.mapboxgl-popup {
+  max-width: 240px;
+  font-family: 'Inter', sans-serif;
+}
+
+.mapboxgl-popup-content {
+  @apply bg-background text-text-primary border border-accent/20 rounded-lg shadow-lg p-3;
+  animation: popup-fade-in 0.3s ease-out;
+}
+
+.mapboxgl-popup-close-button {
+  @apply text-text-secondary hover:text-accent;
+  font-size: 18px;
+  padding: 4px 8px;
+}
+
+.mapboxgl-popup-tip {
+  @apply border-t-background;
+}
+
+/* Custom marker animation */
+.marker {
+  cursor: pointer;
+  filter: drop-shadow(0 3px 5px rgba(0, 0, 0, 0.5));
+  transition: all 0.3s ease;
+}
+
+.marker:hover {
+  filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.7));
+}
+
+/* Custom popup animation */
+@keyframes popup-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Customize Mapbox controls */
+.mapboxgl-ctrl-group {
+  @apply bg-background border border-accent/20 rounded-lg overflow-hidden shadow-lg;
+}
+
+.mapboxgl-ctrl-group button {
+  @apply text-text-primary hover:bg-background-light;
+  width: 36px !important;
+  height: 36px !important;
+}
+
+.mapboxgl-ctrl-group button.mapboxgl-ctrl-zoom-in {
+  @apply border-background-light border-b;
+}
+
+.mapboxgl-ctrl-group button .mapboxgl-ctrl-icon {
+  @apply bg-no-repeat;
+}
+
+.mapboxgl-ctrl-attrib-inner {
+  @apply text-xs py-1 px-2 bg-background bg-opacity-75 rounded-md text-text-secondary;
+}
+
+.mapboxgl-ctrl-attrib-inner a {
+  @apply text-accent/80 hover:text-accent;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-background-light rounded-full;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-accent/50 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-accent;
+}
+
+/* Add border utilities */
+.border-l-3 {
+  border-left-width: 3px;
+}
+
+/* Animation utilities */
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes slideUp {
+  0% { transform: translateY(20px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
